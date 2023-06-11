@@ -11,8 +11,8 @@ public class gamemanager : MonoBehaviour
     public Transform[] cardslot;
     public bool[] availableslot;
     public TextMeshProUGUI redCountText, blueCountText, yellowCountText, greenCountText, purpleCountText, rainbowCountText, blackCountText;
-    int redNumber, blueNumber, yellowNumber, greenNumber, purpleNumber, rainbowNumber, blackNumber;
-
+    public int redNumber, blueNumber, yellowNumber, greenNumber, purpleNumber, rainbowNumber, blackNumber;
+   
     private void UpdateCountTexts()
     {
         redCountText.text = redNumber.ToString();
@@ -28,7 +28,8 @@ public class gamemanager : MonoBehaviour
         switch (colour)
         {
             case "red":
-                redNumber+=amount;
+                
+                redNumber +=amount;
                 break;
             case "blue":
                 blueNumber += amount; ;
