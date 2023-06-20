@@ -11,6 +11,9 @@ TagManager:
   - purple
   - black
   - rainbow
+  - orange
+  - white
+  - btn
   layers:
   - Default
   - TransparentFX

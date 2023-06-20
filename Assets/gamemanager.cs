@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class gamemanager : MonoBehaviour
@@ -9,10 +10,24 @@ public class gamemanager : MonoBehaviour
     public List<Card> deck = new List<Card>();
     [SerializeField]
     public Transform[] cardslot;
+    public Image ima;
     public bool[] availableslot;
-    public TextMeshProUGUI redCountText, blueCountText, yellowCountText, greenCountText, purpleCountText, rainbowCountText, blackCountText;
-    public int redNumber, blueNumber, yellowNumber, greenNumber, purpleNumber, rainbowNumber, blackNumber;
-   
+    public bool iscorercyvelue=false;
+    public TextMeshProUGUI redCountText, blueCountText, yellowCountText, greenCountText, purpleCountText, rainbowCountText, blackCountText, whiteCountText, orangeCountText;
+    public int redNumber, blueNumber, yellowNumber, greenNumber, purpleNumber, rainbowNumber, blackNumber, whiteNumber,orangeNumber;
+
+
+
+    public void changeclr()
+    {
+
+        ima.color = Color.red;
+        iscorercyvelue = false;
+        Debug.Log("changedcolour");
+        //  Debug.Log("reached here");
+
+
+    }
     private void UpdateCountTexts()
     {
         redCountText.text = redNumber.ToString();
@@ -22,7 +37,10 @@ public class gamemanager : MonoBehaviour
         purpleCountText.text = purpleNumber.ToString();
         rainbowCountText.text = rainbowNumber.ToString();
         blackCountText.text = blackNumber.ToString();
+        whiteCountText.text = whiteNumber.ToString();
+        orangeCountText.text = orangeNumber.ToString();
     }
+    [SerializeField]
     public void annnumber(string colour,int amount)
     {
         switch (colour)
@@ -49,6 +67,13 @@ public class gamemanager : MonoBehaviour
             case "black":
                 blackNumber += +amount; ;
                 break;
+
+            case "orange":
+                orangeNumber += +amount; ;
+                break;
+            case "white":
+                whiteNumber += +amount; ;
+                break;
         }
         UpdateCountTexts();
     }
@@ -72,7 +97,8 @@ public class gamemanager : MonoBehaviour
                         randomcard.gameObject.SetActive(true);
                         randomcard.transform.position = cardslot[i].position;
                         availableslot[i] = false;
-                        deck.Remove(randomcard);
+                    deck.Remove(randomcard);
+                        
                         return;
                     }
             }
