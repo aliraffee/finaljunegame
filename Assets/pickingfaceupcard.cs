@@ -13,8 +13,40 @@ public class pickingfaceupcard : MonoBehaviour
     public Button button;
     public float delay = 5f;
     public bool waiting=false;
-    private float buttonClickTime = 0f;
+   private float buttonClickTime = 0f;
     Card randomcard;
+    public currentplayer cpl;
+
+    private void Start()
+    {
+        if (this.gameObject.tag == "btn")
+        {
+            starting4cards();
+        }
+
+    }
+    
+
+    public void starting4cards()
+    {
+        if (this.gameObject.tag == "btn")
+        {
+
+            for (int p = 0; p < 4; p++)
+            {
+                {
+                    randomcard = gm.deck[Random.Range(0, gm.deck.Count)];
+                    gm.deck.Remove(randomcard);
+                    string tag = randomcard.gameObject.tag;
+                    gm.annnumber(tag, 1);
+                    buttonClickTime = Time.time;
+                    waiting = true;
+
+
+                }
+            }
+        }
+    }
 
     void checkiffilled()
     {
@@ -40,6 +72,7 @@ public class pickingfaceupcard : MonoBehaviour
                 playerhand.poneavailableslot[i] = false;
 
                 string tag = gameObject.tag;
+                cpl.cardpickedup++;
                 gm.annnumber(tag, 1);
                 gm.Draw();
               
@@ -50,20 +83,22 @@ public class pickingfaceupcard : MonoBehaviour
     }
         public void drawfromdeck()
         {
-        Debug.Log("1");
+   
         if (this.gameObject.tag == "btn")
         {
-            Debug.Log("2");
+         
             for (j = 0; j < 2; j++)
             {
 
 
-                Debug.Log("4");
+               
                 if (playerhand.poneavailableslot[j] == true)
                 {
-                    Debug.Log("3");
+                    cpl.cardpickedup++;
+                   
                     checkiffilled();
                     randomcard = gm.deck[Random.Range(0, gm.deck.Count)];
+                   
                     randomcard.transform.SetParent(playerhand.playerslot[j].transform);
                     randomcard.transform.localPosition = new Vector2(0, 0);
                     gm.deck.Remove(randomcard);
@@ -73,6 +108,7 @@ public class pickingfaceupcard : MonoBehaviour
                     gm.annnumber(tag, 1);
                     buttonClickTime = Time.time;
                     waiting = true;
+
                     return;
 
                 }

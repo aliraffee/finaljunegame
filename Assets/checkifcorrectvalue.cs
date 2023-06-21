@@ -12,8 +12,13 @@ public class checkifcorrectvalue : MonoBehaviour
     public gamemanager gm;
     public buttrack bt;
     public accessscriptableobject asc;
+    public currentplayer cpl;
     
     // Start is called before the first frame update
+   
+           
+
+    
     public void checkifenough()
     {
         checkvalue = 0;
@@ -63,11 +68,24 @@ public class checkifcorrectvalue : MonoBehaviour
         if (checkvalue==actualvalue)
         {
             Debug.Log("coorect amount selected");
+            
             gm.iscorercyvelue = true;
+            gm.playerpoint(actualvalue);
             gm.changeclr();
+            
+            for (int i = 0; i < 50; i++)
+            {
+                Debug.Log("waiting");
+                
+            }
+            cpl.ChangePhase();
 
-              
-        }else
+
+
+
+
+        }
+        else
         {
             Debug.Log("incoorect amount selected");
         }

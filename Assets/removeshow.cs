@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class removeshow : MonoBehaviour
  {
-    int childCount, increases;
+    public  int childCount, increases;
     public int whichpos;
     public pickingfaceupcard pk;
     Transform childtransform;
@@ -12,7 +12,10 @@ public class removeshow : MonoBehaviour
     public Transform canvasTransform;
     private void FixedUpdate()
     {
-       
+       if (childCount !=1)
+        {
+            pk.playerhand.poneavailableslot[whichpos] = true;
+        }
         childCount = transform.childCount;
 
         if (childCount==1)

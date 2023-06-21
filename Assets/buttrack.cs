@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class buttrack : MonoBehaviour
 {
     public gamemanager gm;
@@ -11,6 +12,7 @@ public class buttrack : MonoBehaviour
     private Image image;
     public GameObject pnl;
     public bool isgrey = false;
+    public TextMeshProUGUI txtcardamount;
 
     public Slider[] sliders;
     //blue,yellow,green,purple,black,grey,orange,white
@@ -43,6 +45,7 @@ public class buttrack : MonoBehaviour
     public void buytrack(string colour, int amount)
     {
         cf.actualvalue = amount;
+        txtcardamount.text = amount.ToString();
         btnRed.gameObject.SetActive(false);
         btnOrange.gameObject.SetActive(false);
         btnWhite.gameObject.SetActive(false);
