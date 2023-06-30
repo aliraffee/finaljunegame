@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601fad45944605b4d8966407ce94e561, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  numberoftracks: 5
+  numberoftracks: 1
   colour: red

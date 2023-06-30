@@ -10,13 +10,101 @@ public class checkifcorrectvalue : MonoBehaviour
     public Slider slidRed, slidBlue, slidYellow, slidGreen, slidPurple, slidBlack, slidGrey, slidWhite, slidOrange;
     public int checkvalue, actualvalue;
     public gamemanager gm;
+    int red = 0, blue = 0, green = 0, white = 0, black = 0, yellow = 0, grey = 0, orange = 0, purple = 0;
     public buttrack bt;
     public accessscriptableobject asc;
     public currentplayer cpl;
+    public GameObject pnl;
+
+    
     
     // Start is called before the first frame update
    
-           
+    public void minusamonu()
+    {
+        red = 0;
+        blue = 0;
+        green = 0;
+        white = 0;
+        black = 0;
+        yellow = 0;
+        grey = 0;
+        orange = 0;
+        purple = 0;
+        if (slidRed.IsActive())
+        {
+            red += (int)slidRed.value;
+        }
+
+        if (slidBlue.IsActive())
+        {
+            blue += (int)slidBlue.value;
+        }
+
+        if (slidYellow.IsActive())
+        {
+            yellow += (int)slidYellow.value;
+        }
+
+        if (slidGreen.IsActive())
+        {
+            green += (int)slidGreen.value;
+        }
+
+        if (slidPurple.IsActive())
+        {
+            purple += (int)slidPurple.value;
+        }
+
+        if (slidOrange.IsActive())
+        {
+            orange += (int)slidOrange.value;
+        }
+
+        if (slidWhite.IsActive())
+        {
+            white += (int)slidWhite.value;
+        }
+
+        if (slidBlack.IsActive())
+        {
+            black += (int)slidBlack.value;
+        }
+
+        if (slidGrey.IsActive())
+        {
+            grey += (int)slidGrey.value;
+        }
+          if (cpl.currentPhase == PlayerPhase.PlayerOne)
+        {
+
+            gm.redNumber -= red;
+            gm.blueNumber -= blue;
+            gm.greenNumber -= green;
+            gm.whiteNumber -= white;
+            gm.blackNumber -= black;
+            gm.yellowNumber -= yellow;
+            gm.rainbowNumber -= grey;
+            gm.orangeNumber -= orange;
+            gm.purpleNumber -= purple;
+
+
+        }
+        else
+        {
+            gm.redNumber2 -= red;
+            gm.blueNumber2 -= blue;
+            gm.greenNumber2 -= green;
+            gm.whiteNumber2 -= white;
+            gm.blackNumber2 -= black;
+            gm.yellowNumber2 -= yellow;
+            gm.rainbowNumber2 -= grey;
+            gm.orangeNumber2 -= orange;
+            gm.purpleNumber2 -= purple;
+
+        }
+        gm.UpdateCountTexts();
+    }
 
     
     public void checkifenough()
@@ -72,12 +160,12 @@ public class checkifcorrectvalue : MonoBehaviour
             gm.iscorercyvelue = true;
             gm.playerpoint(actualvalue);
             gm.changeclr();
-            
-            for (int i = 0; i < 50; i++)
-            {
-                Debug.Log("waiting");
-                
-            }
+            pnl.SetActive(false);
+            minusamonu();
+
+
+
+
             cpl.ChangePhase();
 
 

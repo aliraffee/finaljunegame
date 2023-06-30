@@ -12,7 +12,7 @@ public class accessscriptableobject : MonoBehaviour
     public int playerpoint ;
     
    
-   // private Renderer objectRenderer;
+   
     public gamemanager gm;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class accessscriptableobject : MonoBehaviour
 
         //  Debug.Log("reached here");
 
-        gm.ima = GetComponent<Image>();
+        gm.ima = GetComponent<SpriteRenderer>();
         bt.buytrack(scrobj.colour, scrobj.numberoftracks);
         gm.playerpoint(scrobj.numberoftracks);
      

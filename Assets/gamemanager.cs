@@ -11,7 +11,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField]
     public Transform[] cardslot;
     public currentplayer cpl;
-    public Image ima;
+    public SpriteRenderer ima;
     public bool[] availableslot;
     public bool iscorercyvelue=false;
     public TextMeshProUGUI player1text, player2text, playerpointtext, redCountText, blueCountText, yellowCountText, greenCountText, purpleCountText, rainbowCountText, blackCountText, whiteCountText, orangeCountText;
