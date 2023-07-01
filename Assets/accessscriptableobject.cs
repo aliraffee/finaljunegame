@@ -22,9 +22,18 @@ public class accessscriptableobject : MonoBehaviour
 
         //  Debug.Log("reached here");
 
-        gm.ima = GetComponent<SpriteRenderer>();
+       
+        GameObject parentObject = transform.parent.gameObject;
+
+        // Get the SpriteRenderer component attached to the parent object
+        gm.ima = parentObject.GetComponent<SpriteRenderer>();
+
+        // Set the alpha value of the sprite color to 1 (full visibility)
+        
         bt.buytrack(scrobj.colour, scrobj.numberoftracks);
         gm.playerpoint(scrobj.numberoftracks);
+
+
      
 
     }

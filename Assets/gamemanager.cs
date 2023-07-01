@@ -84,7 +84,12 @@ public class gamemanager : MonoBehaviour
             player1point += playerinc;
             player1text.text = player1point.ToString();
 
+            Color spriteColor = ima.color;
+            spriteColor.a = 1f;
+            ima.color = spriteColor;
             ima.color = Color.red;
+
+
             iscorercyvelue = false;
             Color newColor = ima.color;
             newColor.a = 0.5f;
@@ -95,7 +100,9 @@ public class gamemanager : MonoBehaviour
         {
             player2point += playerinc;
             player2text.text = player2point.ToString();
-
+            Color spriteColor = ima.color;
+            spriteColor.a = 1f;
+            ima.color = spriteColor;
             ima.color = Color.blue;
             Color newColor = ima.color;
             newColor.a = 0.5f; 
